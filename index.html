@@ -1,7 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Home</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Haochen Zeng</a>
+            <div class="space-x-6">
+                <a href="index.html" class="hover:text-blue-400">About Me</a>
+                <a href="resume.html" class="hover:text-blue-400">Resume</a>
+                <a href="blog.html" class="hover:text-blue-400">Social</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Resume Content -->
+<div class="container py-12 content-padding">
+    <div class="max-w-4xl mx-auto px-4">
+        <!-- About Section with 3D Avatar -->
+        <section class="mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 slide-up">About Hao</h2>
+                    <p class="text-gray-300 mb-4 fade-in">
+                        I'm a technology enthusiast specializing in 3D Digital Twins, Augmented/Virtual Reality, and Robotics. 
+                        My passion lies in creating innovative solutions that bridge the physical and digital worlds.
+                    </p>
+                </div>
+                <div class="three-d-container" id="avatar-3d">
+                    <!-- 3D avatar will be rendered here -->
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <div class="card p-4">
+                    <h3 class="font-bold mb-2">Interests</h3>
+                    <ul class="list-disc list-inside text-gray-300">
+                        <li>Hiking</li>
+                        <li>Technology</li>
+                        <li>Electric Cars</li>
+                        <li>Maps & Transportation</li>
+                        <li>3D Technology</li>
+                    </ul>
+                </div>
+                <div class="card p-4">
+                    <h3 class="font-bold mb-2">Core Skills</h3>
+                    <ul class="list-disc list-inside text-gray-300">
+                        <li>3D Modeling</li>
+                        <li>AR/VR Development</li>
+                        <li>Robotics Programming</li>
+                        <li>Digital Twin Creation</li>
+                        <li>System Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">Experience</h2>
+            <div class="space-y-6">
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold">Digital Twin Developer</h3>
+                    <p class="text-gray-400">Company Name • 2023 - Present</p>
+                    <ul class="list-disc list-inside text-gray-300 mt-4">
+                        <li>Developed comprehensive digital twin solutions</li>
+                        <li>Implemented real-time monitoring systems</li>
+                        <li>Integrated IoT sensors with 3D visualizations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 content-padding">
+        <div class="container">
+            <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto max-w-6xl">
+                <!-- Project Card 1 -->
+                <div class="card">
+                    <div class="three-d-container">
+                        <div id="project1-3d"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">3D Digital Twin Project</h3>
+                        <p class="text-gray-400 mb-4">Created a comprehensive digital twin system for industrial automation</p>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="card">
+                    <div class="three-d-container">
+                        <div id="project2-3d"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">AR Navigation System</h3>
+                        <p class="text-gray-400 mb-4">Developed an augmented reality navigation system for smart cities</p>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="card">
+                    <div class="three-d-container">
+                        <div id="project3-3d"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Autonomous Robot Platform</h3>
+                        <p class="text-gray-400 mb-4">Built a versatile robotics platform for research and development</p>
+                        <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker py-8">
+        <div class="container text-center">
+            <p class="text-gray-400">&copy; 2025 Haochen Zeng. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/loaders/GLTFLoader.js"></script>
+    <script src="./assets/js/three-scenes.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>
