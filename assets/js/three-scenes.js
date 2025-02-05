@@ -24,7 +24,7 @@ function initAvatarScene() {
         1000
     );
     // Position camera to see full model
-    camera.position.set(2.5, 1, 2.5);
+    camera.position.set(2, 0.6, 2);
     camera.lookAt(0, 0.8, 0);  // Look at model's center
     console.log('Camera set up');
 
