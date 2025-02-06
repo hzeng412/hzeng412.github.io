@@ -5,70 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H.Zeng - About Me</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            height: 480px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 500px;
+            z-index: 10;
+        }
+        
+        .three-d-hero {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .content-section {
+            position: relative;
+            z-index: 20;
+            background: linear-gradient(to bottom, transparent, rgba(6, 9, 17, 0.95) 100px);
+        }
+
+        .text-gray-300 {
+            color: #4A5568 !important;
+        }
+
+        .text-gray-400 {
+            color: #4A5568 !important;
+        }
+
+        .three-d-hero canvas:hover {
+            filter: drop-shadow(0 0 10px #00d1ff);
+        }
+    </style>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" type="image/png" href="./assets/models/air_rooster.png">
 </head>
-<body>
+<body class="bg-gray-900">
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="container flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">Haochen (Hao) Zeng</a>
-            <div class="space-x-6">
-                <a href="index.html" class="hover:text-blue-400">About Me</a>
-                <a href="experiences.html" class="hover:text-blue-400">Experiences</a>
-                <a href="resume.html" class="hover:text-blue-400">Resume</a>
-                <a href="social.html" class="hover:text-blue-400">Social</a>
+    <nav class="nav fixed w-full z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold">Haochen (Hao) Zeng</a>
+                <div class="space-x-6">
+                    <a href="index.html" class="hover:text-blue-400">About Me</a>
+                    <a href="experiences.html" class="hover:text-blue-400">Experiences</a>
+                    <a href="resume.html" class="hover:text-blue-400">Resume</a>
+                    <a href="social.html" class="hover:text-blue-400">Social</a>
+                    <!-- <a href="testing.html" class="hover:text-blue-400">Testing</a> -->
+                </div>
             </div>
         </div>
     </nav>
 
-<!-- About Me Content -->
-<div class="container py-5 content-padding">
-    <div class="max-w-4xl mx-auto px-4">
-        <!-- About Section with 3D Avatar -->
-        <section class="mb-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6 slide-up">Hao-dy!</h2>
-                    <p class="text-gray-500 mb-4 fade-in">
-                        I'm a creative technologist specializing in 3D Digital Twins, Augmented/Virtual Reality, and Robotics. 
-                        My passion lies in creating innovative solutions that bridge the physical and digital worlds.
-                    </p>
-                </div>
-                <div class="three-d-container" id="avatar-3d">
-                    <!-- 3D avatar will be rendered here -->
-                </div>
+    <!-- Hero Section with Full-page 3D -->
+    <section class="hero-section">
+        <div class="three-d-hero" id="hero-3d"></div>
+        <div class="container mx-auto px-4">
+            <div class="hero-content">
+                <h2 class="text-3xl font-bold mb-6 slide-up">Hao-dy!</h2>
+                <p class="text-xl text-gray-300 mb-8"> I'm a creative technologist specializing in AR/VR, Robotics, and 3D digital twins.<br><br>
+                    My passion lies in creating innovative solutions that bridge the physical and digital worlds.</p>
             </div>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                <div class="card p-4">
-                    <h3 class="font-bold mb-2">Interests</h3>
-                    <ul class="list-disc list-inside text-gray-500">
-                        <li>Hiking</li>
-                        <li>Cutting Edge/New Tec & AI</li>
-                        <li>Electric Cars</li>
-                        <li>Maps & Transportation</li>
-                        <li>3D</li>
-                    </ul>
+    <!-- Content Section -->
+    <div class="content-section">
+        <div class="container py-20 px-4 mx-auto">
+            <!-- About Section -->
+            <section class="mb-20 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card p-6">
+                        <h3 class="text-xl font-bold mb-4">Interests</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <span class="mr-2">🤖</span> Cutting Edge AI & Tech Applications
+                            </li>
+                            <li class="flex items-center">
+                                <span class="mr-2">⛰️</span> Be In Nature
+                            </li>
+                            <li class="flex items-center">
+                                <span class="mr-2">🚗</span> Cars & EVs
+                            </li>
+                            <li class="flex items-center">
+                                <span class="mr-2">🗺️</span> Maps & Transportation
+                            </li>
+                            <li class="flex items-center">
+                                <span class="mr-2">📐</span> 3D Technology
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-xl font-bold mb-4">Core Skills</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <span class="mr-2">👓</span> AR/VR Development
+                            </li>
+                            <li class="flex items-center">
+                                <span class="mr-2">🤖</span> Robotics Programming
+                            </li>
+                            <li class="flex items-center">
+                                <span class="mr-2">📊</span> Technical Program Management
+                            </li>
+                            <li class="flex items-center">
+                                <span class="mr-2">🔄</span> Digital Twin Creation & 3D modeling
+                            </li>
+                            <li class="flex items-center">
+                                <span class="mr-2">📈</span> Product Strategy & Development
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card p-4">
-                    <h3 class="font-bold mb-2">Core Skills</h3>
-                    <ul class="list-disc list-inside text-gray-500">
-                        <li>3D Modeling</li>
-                        <li>AR/VR Development</li>
-                        <li>Robotics Programming</li>
-                        <li>Digital Twin Creation</li>
-                        <li>Technical Writing</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 content-padding">
-            <div class="container">
+            <!-- Projects Section -->
+            <section class="mb-20">
                 <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto max-w-6xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                        
                     <!-- Project Card 1 -->
                     <div class="card">
                         <div class="three-d-container">
@@ -77,7 +140,6 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Realistic Multisensory VR Experience of Kodak Hall</h3>
                             <p class="text-gray-700 mb-4">Created a comprehensive digital twin system for audio-visual alignment research studies</p>
-                            <!-- <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a> -->
                         </div>
                     </div>
 
@@ -89,7 +151,6 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">InOrbit Robotics System Orchestration</h3>
                             <p class="text-gray-700 mb-4">Created a concentrated system that orchestrated multiple robot systems</p>
-                            <!-- <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a> -->
                         </div>
                     </div>
 
@@ -101,17 +162,17 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Aigen User Dashboard</h3>
                             <p class="text-gray-700 mb-4">Turning raw agri-robot data into actionable insights</p>
-                            <!-- <a href="#" class="text-blue-400 hover:text-blue-300">Learn More →</a> -->
                         </div>
                     </div>
+
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-darker py-8">
-        <div class="container text-center">
+    <footer class="py-8">
+        <div class="container mx-auto px-4 text-center">
             <p class="text-gray-700">&copy; 2025 Haochen Zeng. All rights reserved.</p>
         </div>
     </footer>
@@ -119,7 +180,6 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        // Ensure THREE is available globally
         window.THREE = THREE;
     </script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -127,5 +187,5 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
     <script src="./assets/js/three-scenes.js"></script>
     <script src="./assets/js/main.js"></script>
-
-    </html>
+</body>
+</html>

@@ -107,7 +107,6 @@ body {
 }
 
 .card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 102, 255, 0.1);
   border-color: rgba(0, 102, 255, 0.2);
 }
@@ -241,4 +240,22 @@ a:hover {
   .three-d-container {
       height: 300px;
   }
+}
+
+.content-section {
+  position: relative;
+  z-index: 20;
+  background: white; /* Changed from the dark gradient */
+}
+
+/* Update footer to match other sections */
+footer {
+  background: white; /* Changed from bg-darker */
+  padding: 2rem 0;
+}
+
+footer .container {
+  max-width: 1280px; /* Same as other containers */
+  margin: 0 auto;
+  padding: 0 1rem;
 }
