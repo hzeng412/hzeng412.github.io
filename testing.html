@@ -1,131 +1,277 @@
-OLD ABOUT ME PAGE
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H.Zeng - About Me</title>
+    <title>Portfolio - Projects</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" type="image/png" href="./assets/models/air_rooster.png">
+    <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .modal-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80vh;
+            background: var(--bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Custom scrollbar for modal */
+        .modal-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-container::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        .modal-container::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+    </style>
 </head>
-<body class="bg-white">
+<body>
     <!-- Navigation -->
     <nav class="nav">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-bold">Haochen (Hao) Zeng</a>
-                <div class="space-x-6">
-                    <a href="index.html" class="hover:text-blue-400">About Me</a>
-                    <a href="experiences.html" class="hover:text-blue-400">Experiences</a>
-                    <a href="resume.html" class="hover:text-blue-400">Resume</a>
-                    <a href="social.html" class="hover:text-blue-400">Social</a>
-                    <a href="testing.html" class="hover:text-blue-400">Testing</a>
-                </div>
+        <div class="container flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Haochen Zeng</a>
+            <div class="space-x-6">
+                <a href="index.html" class="hover:text-blue-400">About Me</a>
+                <a href="resume.html" class="hover:text-blue-400">Resume</a>
+                <a href="projects.html" class="hover:text-blue-400">Projects</a>
+                <a href="blog.html" class="hover:text-blue-400">Blog</a>
             </div>
         </div>
     </nav>
 
-    <!-- About Me Content -->
-    <div class="py-5">
-        <div class="container mx-auto px-4">
-            <!-- About Section with 3D Avatar -->
-            <section class="mb-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold mb-6 slide-up">Hao-dy!</h2>
-                        <p class="text-gray-500 mb-4 fade-in">
-                            I'm a creative technologist specializing in 3D Digital Twins, Augmented/Virtual Reality, and Robotics. 
-                            My passion lies in creating innovative solutions that bridge the physical and digital worlds.
-                        </p>
-                    </div>
-                    <div class="three-d-container" id="avatar-3d">
-                        <!-- 3D avatar will be rendered here -->
-                    </div>
-                </div>
+    <!-- Projects Header -->
+    <header class="geometric-bg py-20">
+        <div class="container text-center">
+            <h1 class="text-5xl font-bold mb-4 slide-up">My Projects</h1>
+            <p class="text-xl text-gray-300 fade-in">Exploring the intersection of robotics, AR/VR, and digital twins</p>
+        </div>
+    </header>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                    <div class="card p-4">
-                        <h3 class="font-bold mb-2">Interests</h3>
-                        <ul class="list-disc list-inside text-gray-500">
-                            <li>Hiking</li>
-                            <li>Cutting Edge/New Tec & AI</li>
-                            <li>Electric Cars</li>
-                            <li>Maps & Transportation</li>
-                            <li>3D</li>
-                        </ul>
+    <!-- Projects Grid -->
+    <section class="py-20 content-padding">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Kodak Hall Project -->
+                <article class="card fade-in">
+                    <div class="three-d-container" id="kodak-hall-3d">
+                        <!-- 3D visualization will be added -->
                     </div>
-                    <div class="card p-4">
-                        <h3 class="font-bold mb-2">Core Skills</h3>
-                        <ul class="list-disc list-inside text-gray-500">
-                            <li>3D Modeling</li>
-                            <li>AR/VR Development</li>
-                            <li>Robotics Programming</li>
-                            <li>Digital Twin Creation</li>
-                            <li>Technical Writing</li>
-                        </ul>
+                    <div class="p-6">
+                        <span class="text-sm text-blue-400">VR / Digital Twin</span>
+                        <h3 class="text-xl font-bold mt-2">Kodak Hall VR Experience</h3>
+                        <p class="text-gray-400 mt-2">Created a realistic multisensory VR experience of Kodak Hall for studying audio-visual alignment in autism patients.</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="text-sm text-gray-400">2022</span>
+                            <button onclick="showProjectDetails('kodak-hall')" class="btn btn-outline">Read More</button>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </article>
 
-            <!-- Projects Section -->
-            <section id="projects" class="py-20">
-                <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project Card 1 -->
-                    <div class="card">
-                        <div class="three-d-container">
-                            <div id="project1-3d"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Realistic Multisensory VR Experience of Kodak Hall</h3>
-                            <p class="text-gray-700 mb-4">Created a comprehensive digital twin system for audio-visual alignment research studies</p>
-                        </div>
-                    </div>
+                <!-- Add more project cards here -->
+            </div>
+        </div>
+    </section>
 
-                    <!-- Project Card 2 -->
-                    <div class="card">
-                        <div class="three-d-container">
-                            <div id="project2-3d"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">InOrbit Robotics System Orchestration</h3>
-                            <p class="text-gray-700 mb-4">Created a concentrated system that orchestrated multiple robot systems</p>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 3 -->
-                    <div class="card">
-                        <div class="three-d-container">
-                            <div id="project3-3d"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Aigen User Dashboard</h3>
-                            <p class="text-gray-700 mb-4">Turning raw agri-robot data into actionable insights</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close text-gray-400 hover:text-white" onclick="closeProjectModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="container max-w-4xl mx-auto py-12 px-6" id="project-content">
+                <!-- Project content will be dynamically inserted here -->
+            </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-700">&copy; 2025 Haochen Zeng. All rights reserved.</p>
+    <footer class="bg-darker py-8">
+        <div class="container text-center">
+            <p class="text-gray-400">&copy; 2025 Haochen Zeng. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        window.THREE = THREE;
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/loaders/GLTFLoader.js"></script>
     <script src="./assets/js/three-scenes.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script>
+        // Project data
+        const projectDetails = {
+            'kodak-hall': {
+                title: 'Kodak Hall VR Experience',
+                date: 'Feb 2022 - Nov 2022',
+                category: 'VR / Digital Twin',
+                overview: `Created a realistic multisensory VR experience of Kodak Hall at Eastman School of Music for studying 
+                    audio-visual alignment in autism patients. This project combined advanced photogrammetry, laser scanning, 
+                    and audio engineering to create an immersive virtual environment.`,
+                technical: [
+                    {
+                        title: '3D Modeling & Optimization',
+                        points: [
+                            'Created high-fidelity digital twin using photogrammetry and laser scans',
+                            'Processed and optimized point cloud data into manageable mesh',
+                            'Reduced model size from 60GB to 300MB while maintaining visual quality',
+                            'Implemented LOD (Level of Detail) system for optimal performance'
+                        ]
+                    },
+                    {
+                        title: 'Audio System',
+                        points: [
+                            'Implemented spatial audio system using Unity\'s audio spatializer',
+                            'Created custom audio propagation system for realistic reverb',
+                            'Integrated real acoustic measurements for accurate sound reproduction'
+                        ]
+                    }
+                ],
+                impact: [
+                    'Presented findings at the 2022 & 2024 Frameless XR Symposium',
+                    'Provided platform for studying audio-visual perception in autism patients',
+                    'Created reusable framework for future VR research projects'
+                ],
+                technologies: ['Unity', 'Photogrammetry', 'Blender', 'C#', 'VR SDK', 'Spatial Audio']
+            }
+            // Add more project details here
+        };
+
+        function showProjectDetails(projectId) {
+            const project = projectDetails[projectId];
+            if (!project) return;
+
+            // Generate HTML for project details
+            const content = `
+                <h1 class="text-4xl font-bold mb-4">${project.title}</h1>
+                <div class="flex items-center space-x-4 text-gray-300 mb-8">
+                    <span>${project.date}</span>
+                    <span>|</span>
+                    <span>${project.category}</span>
+                </div>
+
+                <!-- Project Overview -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold mb-4">Project Overview</h2>
+                    <div class="three-d-container mb-8" id="project-detail-3d">
+                        <!-- 3D visualization will be added -->
+                    </div>
+                    <p class="text-gray-300">${project.overview}</p>
+                </section>
+
+                <!-- Technical Details -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold mb-6">Technical Implementation</h2>
+                    <div class="space-y-6">
+                        ${project.technical.map(section => `
+                            <div class="card p-6">
+                                <h3 class="text-xl font-bold mb-4">${section.title}</h3>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    ${section.points.map(point => `<li>${point}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+
+                <!-- Research Impact -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold mb-6">Research Impact</h2>
+                    <div class="card p-6">
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            ${project.impact.map(point => `<li>${point}</li>`).join('')}
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Technologies -->
+                <section>
+                    <h2 class="text-2xl font-bold mb-6">Technologies Used</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        ${project.technologies.map(tech => `
+                            <div class="card p-4 text-center">${tech}</div>
+                        `).join('')}
+                    </div>
+                </section>
+            `;
+
+            // Insert content and show modal
+            document.getElementById('project-content').innerHTML = content;
+            document.getElementById('project-modal').classList.add('modal-active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeProjectModal() {
+            document.getElementById('project-modal').classList.remove('modal-active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('project-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectModal();
+            }
+        });
+
+        // Prevent modal content clicks from closing the modal
+        document.querySelector('.modal-container').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
+    </script>
 </body>
 </html>

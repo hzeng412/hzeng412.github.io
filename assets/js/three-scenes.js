@@ -33,7 +33,7 @@ function initHeroScene() {
     directionalLight.castShadow = true;
     scene.add(directionalLight);
 
-    const rimLight = new THREE.DirectionalLight(0x00d1ff, 0.5);
+    const rimLight = new THREE.DirectionalLight(0x0066FF, 0.5);
     rimLight.position.set(-5, 5, -5);
     scene.add(rimLight);
 
@@ -123,8 +123,8 @@ function initHeroScene() {
             model.traverse((node) => {
                 if (node.isMesh) {
                     const newMaterial = node.material.clone();
-                    newMaterial.color = new THREE.Color(0x00d1ff);
-                    newMaterial.emissive = new THREE.Color(0x00d1ff);
+                    newMaterial.color = new THREE.Color(0x0066FF);
+                    newMaterial.emissive = new THREE.Color(0x0066FF);
                     newMaterial.emissiveIntensity = 1.0;
                     node.material = newMaterial;
                 }
@@ -160,8 +160,8 @@ function initHeroScene() {
                 model.traverse((node) => {
                     if (node.isMesh) {
                         const newMaterial = node.material.clone();
-                        newMaterial.color = new THREE.Color(0x00d1ff);
-                        newMaterial.emissive = new THREE.Color(0x00d1ff);
+                        newMaterial.color = new THREE.Color(0x0066FF);
+                        newMaterial.emissive = new THREE.Color(0x0066FF);
                         newMaterial.emissiveIntensity = 1.0;
                         node.material = newMaterial;
                     }
