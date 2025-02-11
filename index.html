@@ -46,6 +46,62 @@
         .three-d-hero canvas:hover {
             filter: drop-shadow(0 0 10px #0066FF);
         }
+
+        /* Add these modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .modal-container {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            width: 95%;
+            max-width: 1400px;
+            height: 92vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-out;
+            z-index: 1000;
+            overflow-y: scroll;
+        }
+
+        .modal-active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-active .modal-container {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .modal-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            color: #4B5563;
+        }
     </style>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -54,7 +110,7 @@
     <nav class="nav fixed w-full z-50">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-bold">Haochen (Hao) Zeng</a>
+                <a href="index.html" class="text-2xl font-bold">Haochen "Hao" Zeng </a>
                 <div class="space-x-6">
                     <a href="index.html" class="hover:text-blue-400">About Me</a>
                     <a href="projects.html" class="hover:text-blue-400">Projects</a>
@@ -131,45 +187,172 @@
             <!-- Projects Section -->
             <section class="mb-20">
                 <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                        
-                    <!-- Project Card 1 -->
-                    <div class="card">
-                        <div class="three-d-container">
-                            <img src="./assets/models/kodak-hall.png" alt="Kodak Hall Project" class="w-full h-full object-cover" />
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Realistic Multisensory VR Experience of Kodak Hall</h3>
-                            <p class="text-gray-700 mb-4">Created a realistic multisensory VR experience of Kodak Hall for studying audio-visual alignment in autism patients</p>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2 -->
-                    <div class="card">
-                        <div class="three-d-container">
-                            <img src="./assets/models/inorbit.png" alt="InOrbit Robotics System" class="w-full h-full object-cover" />
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">InOrbit Robotics System Orchestration</h3>
-                            <p class="text-gray-700 mb-4">Created a concentrated system that orchestrated multiple robot systems</p>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 3 -->
-                    <div class="card">
-                        <div class="three-d-container">
-                            <img src="./assets/models/aigen.jpg" alt="Aigen Robotics Platform" class="w-full h-full object-cover" />
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Aigen User Dashboard</h3>
-                            <p class="text-gray-700 mb-4">Turning raw agri-robot data into actionable insights</p>
-                        </div>
-                    </div>
-
+                <div id="featured-projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Projects will be dynamically inserted here -->
                 </div>
             </section>
+
+            <!-- Project Details Modal -->
+            <div id="project-modal" class="modal-overlay">
+                <div class="modal-container">
+                    <button class="modal-close" onclick="closeProjectModal()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                    <div class="p-6" id="project-content">
+                        <!-- Project content will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flex justify-center">
+                <a href="projects.html" class="btn text-lg bg-blue-600 hover:bg-transparent text-white hover:text-blue-600 border-0 rounded-lg px-6 py-2 transition-all duration-300">More Projects</a>
+            </div>
+            
         </div>
     </div>
+
+    <script>
+        let projectsData = null;
+        const featuredProjectIds = ['kodak-hall', 'inorbit', 'aigen']; // Specify which projects to show
+    
+        async function loadFeaturedProjects() {
+            try {
+                console.log('Attempting to fetch projects data...');
+                const response = await fetch('./assets/data/projects.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                projectsData = await response.json();
+                console.log('Projects data loaded:', projectsData);
+                renderFeaturedProjects();
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                document.getElementById('featured-projects-grid').innerHTML = 
+                    `<div class="col-span-3 text-center text-gray-300">Error loading projects: ${error.message}</div>`;
+            }
+        }
+    
+        function renderFeaturedProjects() {
+            const projectsGrid = document.getElementById('featured-projects-grid');
+            const featuredProjects = projectsData.projects.filter(project => 
+                featuredProjectIds.includes(project.id)
+            );
+    
+            projectsGrid.innerHTML = featuredProjects.map(project => `
+                <article class="card fade-in flex flex-col h-full">
+                    <div class="h-48 overflow-hidden">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex-grow">
+                            <span class="text-sm text-blue-400">${project.shortCategory}</span>
+                            <h3 class="text-xl font-bold mt-2">${project.shortTitle}</h3>
+                            <p class="text-gray-600 mt-2">${project.shortDescription}</p>
+                        </div>
+                        <div class="mt-4 flex justify-end">
+                            <button onclick="showProjectDetails('${project.id}')" class="btn btn-outline">Read More</button>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+    
+        function showProjectDetails(projectId) {
+            const project = projectsData.projects.find(p => p.id === projectId);
+            if (!project) return;
+    
+            const content = `
+                <div class="py-8">
+                    <h1 class="text-3xl font-bold mb-4 text-gray-900">${project.title}</h1>
+                    <div class="flex items-center space-x-4 text-gray-600 mb-6">
+                        <span>${project.date}</span>
+                        <span>|</span>
+                        <span>${project.category}</span>
+                    </div>
+    
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800">Project Overview</h2>
+                        <div class="flex gap-8">
+                            <div class="w-1/2">
+                                <p class="text-gray-700">${project.overview}</p>
+                            </div>
+                                <div class="w-1/2 flex items-center justify-center overflow-hidden rounded-lg">
+                                <img src="${project.image}" alt="${project.title}" class="max-h-96 w-auto" />
+                            </div>
+                        </div>
+                    </section>
+    
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-bold mb-6 text-gray-800">Technical Implementation</h2>
+                        <div class="space-y-6">
+                            ${project.technical.map(section => `
+                                <div class="modal-card p-6">
+                                    <h3 class="text-xl font-bold mb-4 text-gray-800">${section.title}</h3>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                        ${section.points.map(point => `<li>${point}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>
+    
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-bold mb-6 text-gray-800">Impact</h2>
+                        <div class="modal-card p-6">
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                ${project.impact.map(point => `<li>${point}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </section>
+    
+                    <section class="mb-8">
+                        <h2 class="text-2xl font-bold mb-6 text-gray-800">Technologies Used</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            ${project.technologies.map(tech => `
+                                <div class="modal-card p-4 text-center text-gray-700">${tech}</div>
+                            `).join('')}
+                        </div>
+                    </section>
+                </div>
+            `;
+    
+            document.getElementById('project-content').innerHTML = content;
+            document.getElementById('project-modal').classList.add('modal-active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                const modalContainer = document.querySelector('.modal-container');
+                if (modalContainer) {
+                    modalContainer.scrollTop = 0;
+                }
+            }, 0);
+        }
+    
+        function closeProjectModal() {
+            document.getElementById('project-modal').classList.remove('modal-active');
+            document.body.style.overflow = '';
+        }
+    
+        // Close modal when clicking outside
+        document.getElementById('project-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectModal();
+            }
+        });
+    
+        // Close modal when pressing ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
+    
+        // Load projects when page loads
+        document.addEventListener('DOMContentLoaded', loadFeaturedProjects);
+    </script>
 
     <!-- Footer -->
     <footer class="py-8">

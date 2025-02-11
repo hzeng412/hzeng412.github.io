@@ -147,6 +147,10 @@ body {
   transform: translateY(-2px);
 }
 
+.btn {
+  border-width: 0.5px;
+}
+
 /* Forms */
 .form-input {
   width: 100%;

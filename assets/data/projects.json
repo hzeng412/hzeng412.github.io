@@ -1,0 +1,197 @@
+{
+    "projects": [
+      {
+        "id": "kodak-hall",
+        "title": "Kodak Hall VR Experience",
+        "shortTitle": "Realistic Multisensory VR Experience of Kodak Hall",
+        "date": "Feb 2022 - Nov 2022",
+        "category": "VR / Digital Twin",
+        "shortCategory": "VR / Digital Twin",
+        "shortDescription": "Created a realistic multisensory VR experience of Kodak Hall for studying audio-visual alignment in autism patients",
+        "overview": "Created a realistic multisensory VR experience of Kodak Hall at Eastman School of Music for studying audio-visual alignment in autism patients. This project combined advanced photogrammetry, laser scanning, and audio engineering to create an immersive virtual environment.",
+        "image": "./assets/models/kodak-hall.png",
+        "technical": [
+          {
+            "title": "3D Modeling & Optimization",
+            "points": [
+              "Created high-fidelity digital twin using photogrammetry and laser scans",
+              "Processed and optimized point cloud data into manageable mesh",
+              "Reduced model size from 60GB to 300MB while maintaining visual quality",
+              "Implemented LOD (Level of Detail) system for optimal performance"
+            ]
+          },
+          {
+            "title": "Audio System",
+            "points": [
+              "Implemented spatial audio system using Unity's audio spatializer",
+              "Created custom audio propagation system for realistic reverb",
+              "Integrated real acoustic measurements for accurate sound reproduction"
+            ]
+          }
+        ],
+        "impact": [
+          "Presented findings at the 2022 & 2024 Frameless XR Symposium",
+          "Provided platform for studying audio-visual perception in autism patients",
+          "Created reusable framework for future VR research projects"
+        ],
+        "technologies": ["Unity", "Photogrammetry", "Blender", "C#", "VR SDK", "Spatial Audio"]
+      },
+
+      {
+        "id": "inorbit",
+        "title": "InOrbit Robotics System Orchestration",
+        "shortTitle": "InOrbit Robotics System Orchestration",
+        "date": "Mar 2024 - Jun 2024",
+        "category": "Robotics / Systems Engineering",
+        "shortCategory": "Robotics / Systems",
+        "shortDescription": "Spearheaded robot orchestration project to improve pick-and-place efficiency and robot deployment times",
+        "overview": "Led the development of a comprehensive robot orchestration system that significantly improved pick-and-place efficiency and deployment times. Implemented key improvements to the InOrbit control portal and conducted extensive user research to enhance the overall system usability.",
+        "image": "./assets/models/inorbit.png",
+        "technical": [
+          {
+            "title": "System Architecture",
+            "points": [
+              "Spearheaded robot orchestration project using Scrum methodology",
+              "Developed and maintained product roadmap for Create 2 robot integration",
+              "Led implementation of InOrbit control portal",
+              "Achieved 30% faster robot deployment times"
+            ]
+          },
+          {
+            "title": "User Experience",
+            "points": [
+              "Conducted comprehensive user research studies",
+              "Implemented UX improvements based on user feedback",
+              "Increased user task completion rate by 40%",
+              "Created intuitive control interfaces for robot management"
+            ]
+          }
+        ],
+        "impact": [
+          "Improved pick-and-place efficiency by 20%",
+          "Reduced robot deployment time by 30%",
+          "Enhanced user satisfaction through improved interface design",
+          "Established scalable system architecture for future expansions"
+        ],
+        "technologies": ["ROS2", "Python", "React", "Node.js", "Docker", "CI/CD"]
+      },
+      
+      {
+        "id": "aigen",
+        "title": "Aigen Robotics Data Platform",
+        "shortTitle": "Aigen Robotics Data Platform",
+        "date": "Sept 2024 - Present",
+        "category": "Data Visualization / Robotics",
+        "shortCategory": "Data / Robotics",
+        "shortDescription": "Built a scalable data visualization platform for agricultural robots' telemetry and computer vision data",
+        "overview": "Designed and implemented a comprehensive data visualization platform that processes telemetry and computer vision data from 30+ autonomous agricultural robots. Created an intuitive operator dashboard for real-time monitoring and analysis.",
+        "image": "./assets/models/aigen.jpg",
+        "technical": [
+          {
+            "title": "Data Pipeline",
+            "points": [
+              "Built scalable data visualization platform processing 1000+ hours of robot telemetry",
+              "Architected Python pipeline integrating RTK GPS and CV models",
+              "Processed 5Hz sensor data for real-time crop analysis",
+              "Implemented async data handling system for distributed operations"
+            ]
+          },
+          {
+            "title": "Frontend Development",
+            "points": [
+              "Designed React operator dashboard with Tailwind CSS",
+              "Created interactive weed pressure heat maps",
+              "Implemented real-time telemetry visualization",
+              "Built responsive interface for mobile and desktop use"
+            ]
+          }
+        ],
+        "impact": [
+          "Enabled real-time monitoring of 30+ autonomous vehicles",
+          "Improved operational efficiency through data-driven insights",
+          "Reduced data processing latency by 40%",
+          "Created scalable architecture for future fleet expansion"
+        ],
+        "technologies": ["Python", "React", "Tailwind CSS", "WebGL", "PostgreSQL", "Redis"]
+      },
+      
+      {
+        "id": "aurum",
+        "title": "AURUM Medieval Alchemy VR",
+        "shortTitle": "AURUM Medieval Alchemy VR",
+        "date": "Sept 2021 - May 2023",
+        "category": "VR / Game Development",
+        "shortCategory": "VR / Game Development",
+        "shortDescription": "Led development of an educational VR game teaching medieval alchemy concepts through interactive experiences",
+        "overview": "Led a cross-functional team in developing AURUM, an educational VR game that teaches medieval alchemy concepts through immersive interactive experiences. Established technical documentation systems and implemented agile workflows.",
+        "image": "./assets/models/aurum.png",
+        "technical": [
+          {
+            "title": "VR Development",
+            "points": [
+              "Led team of 6 developers to deliver ahead of schedule",
+              "Architected modular VR framework used across 3 projects",
+              "Implemented interactive alchemy simulation system",
+              "Created immersive medieval laboratory environment"
+            ]
+          },
+          {
+            "title": "Project Management",
+            "points": [
+              "Established technical documentation system",
+              "Implemented agile workflows increasing team velocity by 35%",
+              "Conducted technical workshops for 1,300+ students",
+              "Achieved 95% positive feedback from user testing"
+            ]
+          }
+        ],
+        "impact": [
+          "Successfully deployed across multiple educational institutions",
+          "Created reusable VR framework for future projects",
+          "Received recognition at educational technology conferences",
+          "Significantly improved student engagement in chemistry learning"
+        ],
+        "technologies": ["Unity", "C#", "VR SDK", "Blender", "Git", "Agile/Scrum"]
+      },
+
+      {
+        "id": "dandyhacks",
+        "title": "MLH DandyHacks Hackathon Director",
+        "shortTitle": "MLH DandyHacks @ UR",
+        "date": "Mar 2020 - Mar 2022",
+        "category": "Event Management / Leadership",
+        "shortCategory": "Event Management",
+        "shortDescription": "Led organization of University of Rochester's largest annual hackathon, achieving record participation and sponsorship",
+        "overview": "Directed the planning and execution of DandyHacks, University of Rochester's premier 36-hour hackathon event. Led a cross-functional team to organize all aspects of the event, from sponsorship and budgeting to event logistics and participant experience.",
+        "image": "./assets/models/dandyhacks.jpg",
+        "technical": [
+          {
+            "title": "Event Management",
+            "points": [
+              "Led 14 students across 5 teams in event planning and execution",
+              "Implemented project management systems for team coordination",
+              "Managed complex event logistics for 700+ participants",
+              "Coordinated technical infrastructure for virtual and in-person components"
+            ]
+          },
+          {
+            "title": "Sponsorship & Budget",
+            "points": [
+              "Managed $20k event budget with detailed tracking",
+              "Secured partnerships with major tech companies",
+              "Developed sponsorship tiers and benefits packages",
+              "Maintained relationships with Google Cloud, MLH, M&T Bank"
+            ]
+          }
+        ],
+        "impact": [
+          "Achieved 50% increase in hackathon participation",
+          "Successfully organized first in-person MLH event since Covid",
+          "Generated 38 innovative project submissions",
+          "Established sustainable framework for future hackathons"
+        ],
+        "technologies": ["Project Management", "Budget Management", "Event Planning", "Team Leadership", "Stakeholder Management"]
+      }
+
+    ]
+  }

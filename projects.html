@@ -115,7 +115,7 @@
     <nav class="nav">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-bold">Haochen (Hao) Zeng</a>
+                <a href="index.html" class="text-2xl font-bold">Haochen "Hao" Zeng </a>
                 <div class="space-x-6">
                     <a href="index.html" class="hover:text-blue-400">About Me</a>
                     <a href="projects.html" class="hover:text-blue-400">Projects</a>
@@ -140,74 +140,8 @@
     <!-- Projects Grid -->
     <section class="py-8 content-padding">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Kodak Hall Project -->
-                <article class="card fade-in flex flex-col h-full">
-                    <div class="three-d-container h-32" id="kodak-hall-3d">
-                        <img src="./assets/models/kodak-hall.png" alt="Kodak Hall Project" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <span class="text-sm text-blue-400">VR / Digital Twin</span>
-                            <h3 class="text-xl font-bold mt-2">Realistic Multisensory VR Experience of Kodak Hall</h3>
-                            <p class="text-gray-600 mt-2">Created a realistic multisensory VR experience of Kodak Hall for studying audio-visual alignment in autism patients</p>
-                        </div>
-                        <div class="mt-4 flex justify-end">
-                            <button onclick="showProjectDetails('kodak-hall')" class="btn btn-outline">Read More</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- InOrbit Project -->
-                <article class="card fade-in flex flex-col h-full">
-                    <div class="h-48 overflow-hidden">
-                        <img src="./assets/models/inorbit.png" alt="InOrbit Robotics System" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <span class="text-sm text-blue-400">Robotics / Systems</span>
-                            <h3 class="text-xl font-bold mt-2">InOrbit Robotics System Orchestration</h3>
-                            <p class="text-gray-600 mt-2">Spearheaded robot orchestration project to improve pick-and-place efficiency and robot deployment times</p>
-                        </div>
-                        <div class="mt-4 flex justify-end">
-                            <button onclick="showProjectDetails('inorbit')" class="btn btn-outline">Read More</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Aigen Project -->
-                <article class="card fade-in flex flex-col h-full">
-                    <div class="h-48 overflow-hidden">
-                        <img src="./assets/models/aigen.jpg" alt="Aigen Robotics Platform" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <span class="text-sm text-blue-400">Data / Robotics</span>
-                            <h3 class="text-xl font-bold mt-2">Aigen Robotics Data Platform</h3>
-                            <p class="text-gray-600 mt-2">Built a scalable data visualization platform for agricultural robots' telemetry and computer vision data</p>
-                        </div>
-                        <div class="mt-4 flex justify-end">
-                            <button onclick="showProjectDetails('aigen')" class="btn btn-outline">Read More</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- AURUM VR Project -->
-                <article class="card fade-in flex flex-col h-full">
-                    <div class="h-48 overflow-hidden">
-                        <img src="./assets/models/aurum.png" alt="AURUM VR Game" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <span class="text-sm text-blue-400">VR / Game Development</span>
-                            <h3 class="text-xl font-bold mt-2">AURUM Medieval Alchemy VR</h3>
-                            <p class="text-gray-600 mt-2">Led development of an educational VR game teaching medieval alchemy concepts through interactive experiences</p>
-                        </div>
-                        <div class="mt-4 flex justify-end">
-                            <button onclick="showProjectDetails('aurum')" class="btn btn-outline">Read More</button>
-                        </div>
-                    </div>
-                </article>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Projects will be dynamically inserted here -->
             </div>
         </div>
     </section>
@@ -229,155 +163,52 @@
 
     <!-- Scripts -->
     <script>
-        // Scroll to top when page loads
-        window.onload = function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+        let projectsData = null;
 
-        // Also scroll to top when navigating to this page
-        document.addEventListener('DOMContentLoaded', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        const projectDetails = {
-            'kodak-hall': {
-                title: 'Kodak Hall VR Experience',
-                date: 'Feb 2022 - Nov 2022',
-                category: 'VR / Digital Twin',
-                overview: `Created a realistic multisensory VR experience of Kodak Hall at Eastman School of Music for studying 
-                    audio-visual alignment in autism patients. This project combined advanced photogrammetry, laser scanning, 
-                    and audio engineering to create an immersive virtual environment.`,
-                technical: [
-                    {
-                        title: '3D Modeling & Optimization',
-                        points: [
-                            'Created high-fidelity digital twin using photogrammetry and laser scans',
-                            'Processed and optimized point cloud data into manageable mesh',
-                            'Reduced model size from 60GB to 300MB while maintaining visual quality',
-                            'Implemented LOD (Level of Detail) system for optimal performance'
-                        ]
-                    },
-                    {
-                        title: 'Audio System',
-                        points: [
-                            'Implemented spatial audio system using Unity\'s audio spatializer',
-                            'Created custom audio propagation system for realistic reverb',
-                            'Integrated real acoustic measurements for accurate sound reproduction'
-                        ]
-                    }
-                ],
-                impact: [
-                    'Presented findings at the 2022 & 2024 Frameless XR Symposium',
-                    'Provided platform for studying audio-visual perception in autism patients',
-                    'Created reusable framework for future VR research projects'
-                ],
-                technologies: ['Unity', 'Photogrammetry', 'Blender', 'C#', 'VR SDK', 'Spatial Audio']
-            },
-            'inorbit': {
-                title: 'InOrbit Robotics System Orchestration',
-                date: 'Mar 2024 - Jun 2024',
-                category: 'Robotics / Systems Engineering',
-                overview: `Led the development of a comprehensive robot orchestration system that significantly improved pick-and-place efficiency and deployment times. 
-                    Implemented key improvements to the InOrbit control portal and conducted extensive user research to enhance the overall system usability.`,
-                technical: [
-                    {
-                        title: 'System Architecture',
-                        points: [
-                            'Spearheaded robot orchestration project using Scrum methodology',
-                            'Developed and maintained product roadmap for Create 2 robot integration',
-                            'Led implementation of InOrbit control portal',
-                            'Achieved 30% faster robot deployment times'
-                        ]
-                    },
-                    {
-                        title: 'User Experience',
-                        points: [
-                            'Conducted comprehensive user research studies',
-                            'Implemented UX improvements based on user feedback',
-                            'Increased user task completion rate by 40%',
-                            'Created intuitive control interfaces for robot management'
-                        ]
-                    }
-                ],
-                impact: [
-                    'Improved pick-and-place efficiency by 20%',
-                    'Reduced robot deployment time by 30%',
-                    'Enhanced user satisfaction through improved interface design',
-                    'Established scalable system architecture for future expansions'
-                ],
-                technologies: ['ROS2', 'Python', 'React', 'Node.js', 'Docker', 'CI/CD']
-            },
-            'aigen': {
-                title: 'Aigen Robotics Data Platform',
-                date: 'Sept 2024 - Present',
-                category: 'Data Visualization / Robotics',
-                overview: `Designed and implemented a comprehensive data visualization platform that processes telemetry and computer vision data from 30+ autonomous agricultural robots. 
-                    Created an intuitive operator dashboard for real-time monitoring and analysis.`,
-                technical: [
-                    {
-                        title: 'Data Pipeline',
-                        points: [
-                            'Built scalable data visualization platform processing 1000+ hours of robot telemetry',
-                            'Architected Python pipeline integrating RTK GPS and CV models',
-                            'Processed 5Hz sensor data for real-time crop analysis',
-                            'Implemented async data handling system for distributed operations'
-                        ]
-                    },
-                    {
-                        title: 'Frontend Development',
-                        points: [
-                            'Designed React operator dashboard with Tailwind CSS',
-                            'Created interactive weed pressure heat maps',
-                            'Implemented real-time telemetry visualization',
-                            'Built responsive interface for mobile and desktop use'
-                        ]
-                    }
-                ],
-                impact: [
-                    'Enabled real-time monitoring of 30+ autonomous vehicles',
-                    'Improved operational efficiency through data-driven insights',
-                    'Reduced data processing latency by 40%',
-                    'Created scalable architecture for future fleet expansion'
-                ],
-                technologies: ['Python', 'React', 'Tailwind CSS', 'WebGL', 'PostgreSQL', 'Redis']
-            },
-            'aurum': {
-                title: 'AURUM Medieval Alchemy VR',
-                date: 'Sept 2021 - May 2023',
-                category: 'VR / Game Development',
-                overview: `Led a cross-functional team in developing AURUM, an educational VR game that teaches medieval alchemy concepts through 
-                    immersive interactive experiences. Established technical documentation systems and implemented agile workflows.`,
-                technical: [
-                    {
-                        title: 'VR Development',
-                        points: [
-                            'Led team of 6 developers to deliver ahead of schedule',
-                            'Architected modular VR framework used across 3 projects',
-                            'Implemented interactive alchemy simulation system',
-                            'Created immersive medieval laboratory environment'
-                        ]
-                    },
-                    {
-                        title: 'Project Management',
-                        points: [
-                            'Established technical documentation system',
-                            'Implemented agile workflows increasing team velocity by 35%',
-                            'Conducted technical workshops for 1,300+ students',
-                            'Achieved 95% positive feedback from user testing'
-                        ]
-                    }
-                ],
-                impact: [
-                    'Successfully deployed across multiple educational institutions',
-                    'Created reusable VR framework for future projects',
-                    'Received recognition at educational technology conferences',
-                    'Significantly improved student engagement in chemistry learning'
-                ],
-                technologies: ['Unity', 'C#', 'VR SDK', 'Blender', 'Git', 'Agile/Scrum']
+        // Load projects data
+        async function loadProjectsData() {
+            try {
+                console.log('Attempting to fetch projects data...');
+                const response = await fetch('./assets/data/projects.json');
+                console.log('Response:', response);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                projectsData = await response.json();
+                console.log('Parsed data:', projectsData);
+                renderProjects();
+            } catch (error) {
+                console.error('Detailed error:', error);
+                document.getElementById('projects-grid').innerHTML = 
+                    `<div class="col-span-3 text-center">Error loading projects: ${error.message}</div>`;
             }
-        };
+        }
 
+        // Render project cards
+        function renderProjects() {
+            const projectsGrid = document.getElementById('projects-grid');
+            projectsGrid.innerHTML = projectsData.projects.map(project => `
+                <article class="card fade-in flex flex-col h-full">
+                    <div class="h-48 overflow-hidden">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex-grow">
+                            <span class="text-sm text-blue-400">${project.shortCategory}</span>
+                            <h3 class="text-xl font-bold mt-2">${project.shortTitle}</h3>
+                            <p class="text-gray-600 mt-2">${project.shortDescription}</p>
+                        </div>
+                        <div class="mt-4 flex justify-end">
+                            <button onclick="showProjectDetails('${project.id}')" class="btn btn-outline">Read More</button>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Show project details
         function showProjectDetails(projectId) {
-            const project = projectDetails[projectId];
+            const project = projectsData.projects.find(p => p.id === projectId);
             if (!project) return;
 
             const content = `
@@ -391,10 +222,14 @@
 
                     <section class="mb-12">
                         <h2 class="text-2xl font-bold mb-4 text-gray-800">Project Overview</h2>
-                        <div class="h-64 mb-6 overflow-hidden rounded-lg">
-                            <img src="./assets/models/${projectId}.${projectId === 'aigen' ? 'jpg' : 'png'}" alt="${project.title}" class="w-full h-full object-cover" />
+                        <div class="flex gap-8">
+                            <div class="w-1/2">
+                                <p class="text-gray-700">${project.overview}</p>
+                            </div>
+                                <div class="w-1/2 flex items-center justify-center overflow-hidden rounded-lg">
+                                <img src="${project.image}" alt="${project.title}" class="max-h-96 w-auto" />
+                            </div>
                         </div>
-                        <p class="text-gray-700">${project.overview}</p>
                     </section>
 
                     <section class="mb-12">
@@ -460,6 +295,26 @@
                 closeProjectModal();
             }
         });
+
+        // Load projects when page loads
+        document.addEventListener('DOMContentLoaded', loadProjectsData);
+
+        // Scroll to top when page loads
+        window.onload = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        // Also scroll to top when navigating to this page
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-700">&copy; 2025 Haochen Zeng. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
