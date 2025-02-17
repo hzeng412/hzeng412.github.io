@@ -275,26 +275,3 @@ footer .container {
   color: #60A5FA; /* equivalent to text-blue-400 */
   transition: color var(--transition-speed) ease;
 }
-
-/* Name Styling */
-.name-fade {
-  color: var(--text-secondary);
-}
-
-a:hover .name-fade,
-a:hover .name-main {
-  color: var(--primary-dark);
-  text-shadow: 0 0 10px rgba(0, 102, 255, 0.2);
-}
-
-.nav-link {
-  color: var(--text-primary);
-  transition: color var(--transition-speed) ease;
-}
-
-.nav-link:hover {
-  color: var(--primary-dark);
-  text-shadow: 0 0 10px rgba(0, 102, 255, 0.2);
-}
-
-/* Animation Classes */
