@@ -163,7 +163,7 @@
         "shortCategory": "Event Management",
         "shortDescription": "Led organization of University of Rochester's largest annual hackathon, achieving record participation and sponsorship",
         "overview": "Directed the planning and execution of DandyHacks, University of Rochester's premier 36-hour hackathon event. Led a cross-functional team to organize all aspects of the event, from sponsorship and budgeting to event logistics and participant experience.",
-        "image": "./assets/models/dandyhacks.jpg",
+        "image": "./assets/models/dandyhacks.png",
         "technical": [
           {
             "title": "Event Management",
