@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-content {
             position: absolute;
             top: 50%;
@@ -19,7 +20,7 @@
             max-width: 500px;
             z-index: 10;
         }
-        
+
         .three-d-hero {
             position: absolute;
             top: 0;
@@ -28,7 +29,7 @@
             height: 100%;
             z-index: 1;
         }
-        
+
         .content-section {
             position: relative;
             z-index: 20;
@@ -104,7 +105,8 @@
     <nav class="nav fixed w-full z-50">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-bold"><span>Hao</span><span class="text-gray-400">chen Zeng</span></a>
+                <a href="index.html" class="text-2xl font-bold"><span>Hao</span><span class="text-gray-400">chen
+                        Zeng</span></a>
                 <div class="space-x-6">
                     <a href="index.html" class="hover:text-blue-400">About Me</a>
                     <a href="projects.html" class="hover:text-blue-400">Projects</a>
@@ -123,7 +125,8 @@
         <div class="container mx-auto px-4">
             <div class="hero-content">
                 <h2 class="text-3xl font-bold mb-6 slide-up">Hao-dy!</h2>
-                <p class="text-xl text-gray-500 mb-8"> I'm a creative technologist specializing in AR/VR, Robotics, and 3D creations.<br><br>
+                <p class="text-xl text-gray-500 mb-8"> I'm a creative technologist specializing in AR/VR, Robotics, and
+                    3D creations.<br><br>
                     My passion lies in creating innovative solutions that bridge the physical and digital worlds.</p>
             </div>
         </div>
@@ -190,7 +193,8 @@
             <div id="project-modal" class="modal-overlay">
                 <div class="modal-container">
                     <button class="modal-close" onclick="closeProjectModal()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -203,16 +207,18 @@
 
 
             <div class="flex justify-center">
-                <a href="projects.html" class="btn text-lg bg-blue-600 hover:bg-transparent text-white hover:text-blue-600 border-0 rounded-lg px-6 py-2 transition-all duration-300">More Projects</a>
+                <a href="projects.html"
+                    class="btn text-lg bg-blue-600 hover:bg-transparent text-white hover:text-blue-600 border-0 rounded-lg px-6 py-2 transition-all duration-300">More
+                    Projects</a>
             </div>
-            
+
         </div>
     </div>
 
     <script>
         let projectsData = null;
         const featuredProjectIds = ['kodak-hall', 'inorbit', 'aigen']; // Specify which projects to show
-    
+
         async function loadFeaturedProjects() {
             try {
                 console.log('Attempting to fetch projects data...');
@@ -225,17 +231,17 @@
                 renderFeaturedProjects();
             } catch (error) {
                 console.error('Error loading projects:', error);
-                document.getElementById('featured-projects-grid').innerHTML = 
+                document.getElementById('featured-projects-grid').innerHTML =
                     `<div class="col-span-3 text-center text-gray-300">Error loading projects: ${error.message}</div>`;
             }
         }
-    
+
         function renderFeaturedProjects() {
             const projectsGrid = document.getElementById('featured-projects-grid');
-            const featuredProjects = projectsData.projects.filter(project => 
+            const featuredProjects = projectsData.projects.filter(project =>
                 featuredProjectIds.includes(project.id)
             );
-    
+
             projectsGrid.innerHTML = featuredProjects.map(project => `
                 <article class="card fade-in flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
@@ -254,11 +260,11 @@
                 </article>
             `).join('');
         }
-    
+
         function showProjectDetails(projectId) {
             const project = projectsData.projects.find(p => p.id === projectId);
             if (!project) return;
-    
+
             const content = `
                 <div class="py-8">
                     <h1 class="text-3xl font-bold mb-4 text-gray-900">${project.title}</h1>
@@ -313,7 +319,7 @@
                     </section>
                 </div>
             `;
-    
+
             document.getElementById('project-content').innerHTML = content;
             document.getElementById('project-modal').classList.add('modal-active');
             document.body.style.overflow = 'hidden';
@@ -324,26 +330,26 @@
                 }
             }, 0);
         }
-    
+
         function closeProjectModal() {
             document.getElementById('project-modal').classList.remove('modal-active');
             document.body.style.overflow = '';
         }
-    
+
         // Close modal when clicking outside
-        document.getElementById('project-modal').addEventListener('click', function(e) {
+        document.getElementById('project-modal').addEventListener('click', function (e) {
             if (e.target === this) {
                 closeProjectModal();
             }
         });
-    
+
         // Close modal when pressing ESC key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeProjectModal();
             }
         });
-    
+
         // Load projects when page loads
         document.addEventListener('DOMContentLoaded', loadFeaturedProjects);
     </script>
@@ -351,7 +357,7 @@
     <!-- Footer -->
     <footer class="py-8">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-700">&copy; 2025 Haochen Zeng</p>
+            <p class="text-gray-700">&copy; 2026 Haochen Zeng</p>
         </div>
     </footer>
 
@@ -366,4 +372,5 @@
     <script src="./assets/js/three-scenes.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
+
 </html>

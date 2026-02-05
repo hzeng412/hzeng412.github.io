@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
         }
-        
+
         .modal-active .modal-container {
             transform: translateX(-50%) translateY(0);
         }
@@ -111,12 +112,14 @@
     </style>
     <link rel="icon" type="image/png" href="./assets/models/air_rooster.png">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-bold"><span>Hao</span><span class="text-gray-400">chen Zeng</span></a>
+                <a href="index.html" class="text-2xl font-bold"><span>Hao</span><span class="text-gray-400">chen
+                        Zeng</span></a>
                 <div class="space-x-6">
                     <a href="index.html" class="hover:text-blue-400">About Me</a>
                     <a href="projects.html" class="hover:text-blue-400">Projects</a>
@@ -151,7 +154,8 @@
     <div id="project-modal" class="modal-overlay">
         <div class="modal-container">
             <button class="modal-close" onclick="closeProjectModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -180,7 +184,7 @@
                 renderProjects();
             } catch (error) {
                 console.error('Detailed error:', error);
-                document.getElementById('projects-grid').innerHTML = 
+                document.getElementById('projects-grid').innerHTML =
                     `<div class="col-span-3 text-center">Error loading projects: ${error.message}</div>`;
             }
         }
@@ -284,14 +288,14 @@
         }
 
         // Close modal when clicking outside
-        document.getElementById('project-modal').addEventListener('click', function(e) {
+        document.getElementById('project-modal').addEventListener('click', function (e) {
             if (e.target === this) {
                 closeProjectModal();
             }
         });
 
         // Close modal when pressing ESC key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeProjectModal();
             }
@@ -301,12 +305,12 @@
         document.addEventListener('DOMContentLoaded', loadProjectsData);
 
         // Scroll to top when page loads
-        window.onload = function() {
+        window.onload = function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
         // Also scroll to top when navigating to this page
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
@@ -314,8 +318,9 @@
     <!-- Footer -->
     <footer class="py-8">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-700">&copy; 2025 Haochen Zeng</p>
+            <p class="text-gray-700">&copy; 2026 Haochen Zeng</p>
         </div>
     </footer>
 </body>
+
 </html>
