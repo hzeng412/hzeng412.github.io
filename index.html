@@ -4,373 +4,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H.Zeng - About Me</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <style>
-        .hero-section {
-            height: 480px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            max-width: 500px;
-            z-index: 10;
-        }
-
-        .three-d-hero {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .content-section {
-            position: relative;
-            z-index: 20;
-            background: linear-gradient(to bottom, transparent, rgba(6, 9, 17, 0.95) 100px);
-        }
-
-        .three-d-hero canvas:hover {
-            filter: drop-shadow(0 0 10px #0066FF);
-        }
-
-        /* Add these modal styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .modal-container {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%) translateY(100%);
-            width: 95%;
-            max-width: 1400px;
-            height: 92vh;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 16px 16px 0 0;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-out;
-            z-index: 1000;
-            overflow-y: scroll;
-        }
-
-        .modal-active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-active .modal-container {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .modal-card {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 0.5rem;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            color: #4B5563;
-        }
-    </style>
+    <title>Haochen Zeng — About Me</title>
+    <meta name="description" content="Haochen Zeng — creative technologist specializing in AR/VR, robotics, and 3D creation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" type="image/png" href="./assets/models/air_rooster.png">
+    <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
 </head>
 
-<body class="bg-gray-900">
+<body>
     <!-- Navigation -->
-    <nav class="nav fixed w-full z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-bold"><span>Hao</span><span class="text-gray-400">chen
-                        Zeng</span></a>
-                <div class="space-x-6">
-                    <a href="index.html" class="hover:text-blue-400">About Me</a>
-                    <a href="projects.html" class="hover:text-blue-400">Projects</a>
-                    <a href="experiences.html" class="hover:text-blue-400">Experiences</a>
-                    <a href="resume.html" class="hover:text-blue-400">Resume</a>
-                    <a href="social.html" class="hover:text-blue-400">Contact</a>
-                    <!-- <a href="testing.html" class="hover:text-blue-400">Testing</a> -->
-                </div>
+    <nav class="nav nav-overlay">
+        <div class="container nav-inner">
+            <a href="index.html" class="brand"><svg class="mark" viewBox="0 0 44 36" fill="currentColor" aria-hidden="true"><circle cx="21.0" cy="4.1" r="0.41"/><circle cx="22.0" cy="4.0" r="0.41"/><circle cx="22.7" cy="4.0" r="0.41"/><circle cx="19.6" cy="7.1" r="0.49"/><circle cx="21.6" cy="7.8" r="0.49"/><circle cx="24.2" cy="8.0" r="0.49"/><circle cx="22.0" cy="10.9" r="0.56"/><circle cx="23.6" cy="11.2" r="0.56"/><circle cx="25.2" cy="11.0" r="0.56"/><circle cx="27.1" cy="11.5" r="0.56"/><circle cx="15.4" cy="14.3" r="0.84"/><circle cx="16.3" cy="14.0" r="0.84"/><circle cx="17.8" cy="14.9" r="0.84"/><circle cx="20.4" cy="15.0" r="0.84"/><circle cx="23.5" cy="14.8" r="0.84"/><circle cx="24.4" cy="14.3" r="0.84"/><circle cx="26.3" cy="14.1" r="0.84"/><circle cx="27.1" cy="14.0" r="0.84"/><circle cx="28.5" cy="14.6" r="0.84"/><circle cx="14.5" cy="17.6" r="0.94"/><circle cx="15.7" cy="17.7" r="0.94"/><circle cx="17.7" cy="17.8" r="0.94"/><circle cx="18.7" cy="17.9" r="0.94"/><circle cx="20.6" cy="17.6" r="0.94"/><circle cx="21.7" cy="17.7" r="0.94"/><circle cx="24.7" cy="18.1" r="0.94"/><circle cx="26.6" cy="17.9" r="0.94"/><circle cx="28.5" cy="18.0" r="0.94"/><circle cx="31.5" cy="18.3" r="0.94"/><circle cx="10.2" cy="21.8" r="1.04"/><circle cx="11.7" cy="22.0" r="1.04"/><circle cx="14.4" cy="22.0" r="1.04"/><circle cx="16.4" cy="21.2" r="1.04"/><circle cx="19.3" cy="21.0" r="1.04"/><circle cx="20.6" cy="21.9" r="1.04"/><circle cx="21.8" cy="22.0" r="1.04"/><circle cx="23.0" cy="21.2" r="1.04"/><circle cx="24.5" cy="21.1" r="1.04"/><circle cx="26.4" cy="21.1" r="1.04"/><circle cx="28.1" cy="22.0" r="1.04"/><circle cx="30.2" cy="21.0" r="1.04"/><circle cx="33.6" cy="21.5" r="1.04"/><circle cx="9.5" cy="25.3" r="1.14"/><circle cx="11.1" cy="25.2" r="1.14"/><circle cx="12.6" cy="24.8" r="1.14"/><circle cx="14.0" cy="25.4" r="1.14"/><circle cx="15.3" cy="25.4" r="1.14"/><circle cx="16.5" cy="24.9" r="1.14"/><circle cx="17.9" cy="24.5" r="1.14"/><circle cx="19.7" cy="25.4" r="1.14"/><circle cx="20.5" cy="25.3" r="1.14"/><circle cx="23.6" cy="24.5" r="1.14"/><circle cx="24.8" cy="24.7" r="1.14"/><circle cx="26.2" cy="25.1" r="1.14"/><circle cx="27.4" cy="24.5" r="1.14"/><circle cx="30.7" cy="25.2" r="1.14"/><circle cx="32.1" cy="24.8" r="1.14"/><circle cx="32.9" cy="24.9" r="1.14"/><circle cx="34.9" cy="25.4" r="1.14"/><circle cx="5.6" cy="28.9" r="1.23"/><circle cx="7.1" cy="29.0" r="1.23"/><circle cx="8.0" cy="28.4" r="1.23"/><circle cx="9.4" cy="28.4" r="1.23"/><circle cx="11.0" cy="28.3" r="1.23"/><circle cx="15.3" cy="28.6" r="1.23"/><circle cx="17.8" cy="28.0" r="1.23"/><circle cx="20.7" cy="28.4" r="1.23"/><circle cx="22.1" cy="28.8" r="1.23"/><circle cx="23.5" cy="28.2" r="1.23"/><circle cx="24.5" cy="28.0" r="1.23"/><circle cx="26.3" cy="28.1" r="1.23"/><circle cx="27.3" cy="28.7" r="1.23"/><circle cx="29.0" cy="28.8" r="1.23"/><circle cx="32.9" cy="28.6" r="1.23"/><circle cx="34.2" cy="28.6" r="1.23"/><circle cx="36.0" cy="29.0" r="1.23"/><circle cx="37.2" cy="28.2" r="1.23"/><circle cx="38.7" cy="28.7" r="1.23"/><circle cx="2.7" cy="32.4" r="1.33"/><circle cx="4.8" cy="32.0" r="1.33"/><circle cx="5.6" cy="32.5" r="1.33"/><circle cx="6.9" cy="31.5" r="1.33"/><circle cx="8.5" cy="32.3" r="1.33"/><circle cx="11.4" cy="31.6" r="1.33"/><circle cx="13.9" cy="32.2" r="1.33"/><circle cx="15.4" cy="32.5" r="1.33"/><circle cx="17.0" cy="31.5" r="1.33"/><circle cx="18.0" cy="31.8" r="1.33"/><circle cx="19.4" cy="32.0" r="1.33"/><circle cx="20.7" cy="31.8" r="1.33"/><circle cx="22.3" cy="32.4" r="1.33"/><circle cx="23.7" cy="32.5" r="1.33"/><circle cx="24.8" cy="31.7" r="1.33"/><circle cx="27.9" cy="32.0" r="1.33"/><circle cx="29.1" cy="32.1" r="1.33"/><circle cx="30.3" cy="31.5" r="1.33"/><circle cx="31.4" cy="32.5" r="1.33"/><circle cx="34.2" cy="32.3" r="1.33"/><circle cx="35.6" cy="31.8" r="1.33"/><circle cx="38.5" cy="31.5" r="1.33"/><circle cx="39.4" cy="32.2" r="1.33"/><circle cx="33.5" cy="5.2" r="0.62"/><circle cx="38.0" cy="8.8" r="0.80"/><circle cx="41.0" cy="4.0" r="0.50"/></svg><span class="name">Haochen <span class="last">Zeng</span></span></a>
+            <div class="nav-links">
+                <a href="index.html" class="active">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="experiences.html">Experiences</a>
+                <a href="resume.html">Resume</a>
+                <a href="social.html">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Full-page 3D -->
-    <section class="hero-section">
-        <div class="three-d-hero" id="hero-3d"></div>
-        <div class="container mx-auto px-4">
-            <div class="hero-content">
-                <h2 class="text-3xl font-bold mb-6 slide-up">Hao-dy!</h2>
-                <p class="text-xl text-gray-500 mb-8"> I'm a creative technologist specializing in AR/VR, Robotics, and
-                    3D creations.<br><br>
-                    My passion lies in creating innovative solutions that bridge the physical and digital worlds.</p>
-            </div>
+    <!-- Hero: full-bleed photo assembled from a point cloud on load -->
+    <header class="hero-full" id="hero-stage">
+        <picture>
+            <source media="(max-aspect-ratio: 3/4)" srcset="./assets/img/hero-mobile.jpg">
+            <img class="hero-photo" src="./assets/img/hero.jpg"
+                 alt="Snow-capped volcano rising above high-Andean grassland">
+        </picture>
+        <canvas class="intro"></canvas>
+        <div class="container hero-copy">
+            <div class="kicker">bridging the physical and digital worlds</div>
+            <h1>Hao-dy!</h1>
+            <p>I'm a creative technologist specializing in AR/VR, robotics, and 3D creations.
+               My passion lies in creating innovative solutions that bridge the physical and
+               digital worlds.</p>
         </div>
-    </section>
+    </header>
 
-    <!-- Content Section -->
-    <div class="content-section">
-        <div class="container py-20 px-4 mx-auto">
-            <!-- About Section -->
-            <section class="mb-20 max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card p-6">
-                        <h3 class="text-xl font-bold mb-4">Interests</h3>
-                        <ul class="space-y-2 text-gray-500">
-                            <li class="flex items-center">
-                                <span class="mr-2">🤖</span> Cutting Edge AI & Tech Applications
-                            </li>
-                            <li class="flex items-center">
-                                <span class="mr-2">⛰️</span> Be In Nature
-                            </li>
-                            <li class="flex items-center">
-                                <span class="mr-2">🚗</span> Cars & EVs
-                            </li>
-                            <li class="flex items-center">
-                                <span class="mr-2">🗺️</span> Maps & Transportation
-                            </li>
-                            <li class="flex items-center">
-                                <span class="mr-2">📐</span> 3D Technology
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card p-6">
-                        <h3 class="text-xl font-bold mb-4">Core Skills</h3>
-                        <ul class="space-y-2 text-gray-500">
-                            <li class="flex items-center">
-                                <span class="mr-2">👓</span> AR/VR Development
-                            </li>
-                            <li class="flex items-center">
-                                <span class="mr-2">🤖</span> Robotics Programming
-                            </li>
-                            <li class="flex items-center">
-                                <span class="mr-2">📊</span> Technical Program Management
-                            </li>
-                            <li class="flex items-center">
-                                <span class="mr-2">🔄</span> Digital Twin Creation & 3D modeling
-                            </li>
-                            <li class="flex items-center">
-                                <span class="mr-2">📈</span> Product Strategy & Development
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section class="mb-20">
-                <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-                <div id="featured-projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Projects will be dynamically inserted here -->
-                </div>
-            </section>
-
-            <!-- Project Details Modal -->
-            <div id="project-modal" class="modal-overlay">
-                <div class="modal-container">
-                    <button class="modal-close" onclick="closeProjectModal()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                    <div class="p-6" id="project-content">
-                        <!-- Project content will be dynamically inserted here -->
-                    </div>
-                </div>
+    <!-- Interests & Skills -->
+    <div class="container">
+        <div class="cols2">
+            <div id="interests">
+                <div class="list-head">Interests</div>
+                <ul class="ledger">
+                    <li><span class="ix"></span>Cutting-edge AI &amp; tech applications</li>
+                    <li><span class="ix"></span>Being in nature</li>
+                    <li><span class="ix"></span>Cars &amp; EVs</li>
+                    <li><span class="ix"></span>Maps &amp; transportation</li>
+                    <li><span class="ix"></span>3D technology</li>
+                </ul>
             </div>
-
-
-            <div class="flex justify-center">
-                <a href="projects.html"
-                    class="btn text-lg bg-blue-600 hover:bg-transparent text-white hover:text-blue-600 border-0 rounded-lg px-6 py-2 transition-all duration-300">More
-                    Projects</a>
+            <div id="skills">
+                <div class="list-head">Core skills</div>
+                <ul class="ledger">
+                    <li><span class="ix"></span>AR/VR development</li>
+                    <li><span class="ix"></span>Robotics programming</li>
+                    <li><span class="ix"></span>Technical program management</li>
+                    <li><span class="ix"></span>Digital twin creation &amp; 3D modeling</li>
+                    <li><span class="ix"></span>Product strategy &amp; development</li>
+                </ul>
             </div>
-
         </div>
     </div>
 
-    <script>
-        let projectsData = null;
-        const featuredProjectIds = ['kodak-hall', 'inorbit', 'aigen']; // Specify which projects to show
+    <!-- Featured projects -->
+    <section class="container">
+        <div class="section" style="border-bottom:0">
+            <div class="section-head">
+                <h2>Featured projects</h2>
+                <a class="link-more" href="projects.html">All projects</a>
+            </div>
+            <div id="featured-projects-grid" class="project-grid"></div>
+        </div>
+    </section>
 
-        async function loadFeaturedProjects() {
-            try {
-                console.log('Attempting to fetch projects data...');
-                const response = await fetch('./assets/data/projects.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                projectsData = await response.json();
-                console.log('Projects data loaded:', projectsData);
-                renderFeaturedProjects();
-            } catch (error) {
-                console.error('Error loading projects:', error);
-                document.getElementById('featured-projects-grid').innerHTML =
-                    `<div class="col-span-3 text-center text-gray-300">Error loading projects: ${error.message}</div>`;
-            }
-        }
-
-        function renderFeaturedProjects() {
-            const projectsGrid = document.getElementById('featured-projects-grid');
-            const featuredProjects = projectsData.projects.filter(project =>
-                featuredProjectIds.includes(project.id)
-            );
-
-            projectsGrid.innerHTML = featuredProjects.map(project => `
-                <article class="card fade-in flex flex-col h-full">
-                    <div class="h-48 overflow-hidden">
-                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex-grow">
-                            <span class="text-sm text-blue-400">${project.shortCategory}</span>
-                            <h3 class="text-xl font-bold mt-2">${project.shortTitle}</h3>
-                            <p class="text-gray-600 mt-2">${project.shortDescription}</p>
-                        </div>
-                        <div class="mt-4 flex justify-end">
-                            <button onclick="showProjectDetails('${project.id}')" class="btn btn-outline">Read More</button>
-                        </div>
-                    </div>
-                </article>
-            `).join('');
-        }
-
-        function showProjectDetails(projectId) {
-            const project = projectsData.projects.find(p => p.id === projectId);
-            if (!project) return;
-
-            const content = `
-                <div class="py-8">
-                    <h1 class="text-3xl font-bold mb-4 text-gray-900">${project.title}</h1>
-                    <div class="flex items-center space-x-4 text-gray-600 mb-6">
-                        <span>${project.date}</span>
-                        <span>|</span>
-                        <span>${project.category}</span>
-                    </div>
-    
-                    <section class="mb-12">
-                        <h2 class="text-2xl font-bold mb-4 text-gray-800">Project Overview</h2>
-                        <div class="flex gap-8">
-                            <div class="w-1/2">
-                                <p class="text-gray-700">${project.overview}</p>
-                            </div>
-                                <div class="w-1/2 flex items-center justify-center overflow-hidden rounded-lg">
-                                <img src="${project.image}" alt="${project.title}" class="max-h-96 w-auto" />
-                            </div>
-                        </div>
-                    </section>
-    
-                    <section class="mb-12">
-                        <h2 class="text-2xl font-bold mb-6 text-gray-800">Technical Implementation</h2>
-                        <div class="space-y-6">
-                            ${project.technical.map(section => `
-                                <div class="modal-card p-6">
-                                    <h3 class="text-xl font-bold mb-4 text-gray-800">${section.title}</h3>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                        ${section.points.map(point => `<li>${point}</li>`).join('')}
-                                    </ul>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </section>
-    
-                    <section class="mb-12">
-                        <h2 class="text-2xl font-bold mb-6 text-gray-800">Impact</h2>
-                        <div class="modal-card p-6">
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                ${project.impact.map(point => `<li>${point}</li>`).join('')}
-                            </ul>
-                        </div>
-                    </section>
-    
-                    <section class="mb-8">
-                        <h2 class="text-2xl font-bold mb-6 text-gray-800">Technologies Used</h2>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            ${project.technologies.map(tech => `
-                                <div class="modal-card p-4 text-center text-gray-700">${tech}</div>
-                            `).join('')}
-                        </div>
-                    </section>
-                </div>
-            `;
-
-            document.getElementById('project-content').innerHTML = content;
-            document.getElementById('project-modal').classList.add('modal-active');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => {
-                const modalContainer = document.querySelector('.modal-container');
-                if (modalContainer) {
-                    modalContainer.scrollTop = 0;
-                }
-            }, 0);
-        }
-
-        function closeProjectModal() {
-            document.getElementById('project-modal').classList.remove('modal-active');
-            document.body.style.overflow = '';
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('project-modal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeProjectModal();
-            }
-        });
-
-        // Close modal when pressing ESC key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                closeProjectModal();
-            }
-        });
-
-        // Load projects when page loads
-        document.addEventListener('DOMContentLoaded', loadFeaturedProjects);
-    </script>
+    <!-- Project detail modal -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-panel" id="project-content"></div>
+    </div>
 
     <!-- Footer -->
-    <footer class="py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-700">&copy; 2026 Haochen Zeng</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="foot-grid">
+                <div class="fcol">
+                    <a href="index.html" class="brand"><svg class="mark" viewBox="0 0 44 36" fill="currentColor" aria-hidden="true"><circle cx="21.0" cy="4.1" r="0.41"/><circle cx="22.0" cy="4.0" r="0.41"/><circle cx="22.7" cy="4.0" r="0.41"/><circle cx="19.6" cy="7.1" r="0.49"/><circle cx="21.6" cy="7.8" r="0.49"/><circle cx="24.2" cy="8.0" r="0.49"/><circle cx="22.0" cy="10.9" r="0.56"/><circle cx="23.6" cy="11.2" r="0.56"/><circle cx="25.2" cy="11.0" r="0.56"/><circle cx="27.1" cy="11.5" r="0.56"/><circle cx="15.4" cy="14.3" r="0.84"/><circle cx="16.3" cy="14.0" r="0.84"/><circle cx="17.8" cy="14.9" r="0.84"/><circle cx="20.4" cy="15.0" r="0.84"/><circle cx="23.5" cy="14.8" r="0.84"/><circle cx="24.4" cy="14.3" r="0.84"/><circle cx="26.3" cy="14.1" r="0.84"/><circle cx="27.1" cy="14.0" r="0.84"/><circle cx="28.5" cy="14.6" r="0.84"/><circle cx="14.5" cy="17.6" r="0.94"/><circle cx="15.7" cy="17.7" r="0.94"/><circle cx="17.7" cy="17.8" r="0.94"/><circle cx="18.7" cy="17.9" r="0.94"/><circle cx="20.6" cy="17.6" r="0.94"/><circle cx="21.7" cy="17.7" r="0.94"/><circle cx="24.7" cy="18.1" r="0.94"/><circle cx="26.6" cy="17.9" r="0.94"/><circle cx="28.5" cy="18.0" r="0.94"/><circle cx="31.5" cy="18.3" r="0.94"/><circle cx="10.2" cy="21.8" r="1.04"/><circle cx="11.7" cy="22.0" r="1.04"/><circle cx="14.4" cy="22.0" r="1.04"/><circle cx="16.4" cy="21.2" r="1.04"/><circle cx="19.3" cy="21.0" r="1.04"/><circle cx="20.6" cy="21.9" r="1.04"/><circle cx="21.8" cy="22.0" r="1.04"/><circle cx="23.0" cy="21.2" r="1.04"/><circle cx="24.5" cy="21.1" r="1.04"/><circle cx="26.4" cy="21.1" r="1.04"/><circle cx="28.1" cy="22.0" r="1.04"/><circle cx="30.2" cy="21.0" r="1.04"/><circle cx="33.6" cy="21.5" r="1.04"/><circle cx="9.5" cy="25.3" r="1.14"/><circle cx="11.1" cy="25.2" r="1.14"/><circle cx="12.6" cy="24.8" r="1.14"/><circle cx="14.0" cy="25.4" r="1.14"/><circle cx="15.3" cy="25.4" r="1.14"/><circle cx="16.5" cy="24.9" r="1.14"/><circle cx="17.9" cy="24.5" r="1.14"/><circle cx="19.7" cy="25.4" r="1.14"/><circle cx="20.5" cy="25.3" r="1.14"/><circle cx="23.6" cy="24.5" r="1.14"/><circle cx="24.8" cy="24.7" r="1.14"/><circle cx="26.2" cy="25.1" r="1.14"/><circle cx="27.4" cy="24.5" r="1.14"/><circle cx="30.7" cy="25.2" r="1.14"/><circle cx="32.1" cy="24.8" r="1.14"/><circle cx="32.9" cy="24.9" r="1.14"/><circle cx="34.9" cy="25.4" r="1.14"/><circle cx="5.6" cy="28.9" r="1.23"/><circle cx="7.1" cy="29.0" r="1.23"/><circle cx="8.0" cy="28.4" r="1.23"/><circle cx="9.4" cy="28.4" r="1.23"/><circle cx="11.0" cy="28.3" r="1.23"/><circle cx="15.3" cy="28.6" r="1.23"/><circle cx="17.8" cy="28.0" r="1.23"/><circle cx="20.7" cy="28.4" r="1.23"/><circle cx="22.1" cy="28.8" r="1.23"/><circle cx="23.5" cy="28.2" r="1.23"/><circle cx="24.5" cy="28.0" r="1.23"/><circle cx="26.3" cy="28.1" r="1.23"/><circle cx="27.3" cy="28.7" r="1.23"/><circle cx="29.0" cy="28.8" r="1.23"/><circle cx="32.9" cy="28.6" r="1.23"/><circle cx="34.2" cy="28.6" r="1.23"/><circle cx="36.0" cy="29.0" r="1.23"/><circle cx="37.2" cy="28.2" r="1.23"/><circle cx="38.7" cy="28.7" r="1.23"/><circle cx="2.7" cy="32.4" r="1.33"/><circle cx="4.8" cy="32.0" r="1.33"/><circle cx="5.6" cy="32.5" r="1.33"/><circle cx="6.9" cy="31.5" r="1.33"/><circle cx="8.5" cy="32.3" r="1.33"/><circle cx="11.4" cy="31.6" r="1.33"/><circle cx="13.9" cy="32.2" r="1.33"/><circle cx="15.4" cy="32.5" r="1.33"/><circle cx="17.0" cy="31.5" r="1.33"/><circle cx="18.0" cy="31.8" r="1.33"/><circle cx="19.4" cy="32.0" r="1.33"/><circle cx="20.7" cy="31.8" r="1.33"/><circle cx="22.3" cy="32.4" r="1.33"/><circle cx="23.7" cy="32.5" r="1.33"/><circle cx="24.8" cy="31.7" r="1.33"/><circle cx="27.9" cy="32.0" r="1.33"/><circle cx="29.1" cy="32.1" r="1.33"/><circle cx="30.3" cy="31.5" r="1.33"/><circle cx="31.4" cy="32.5" r="1.33"/><circle cx="34.2" cy="32.3" r="1.33"/><circle cx="35.6" cy="31.8" r="1.33"/><circle cx="38.5" cy="31.5" r="1.33"/><circle cx="39.4" cy="32.2" r="1.33"/><circle cx="33.5" cy="5.2" r="0.62"/><circle cx="38.0" cy="8.8" r="0.80"/><circle cx="41.0" cy="4.0" r="0.50"/></svg><span class="name">Haochen <span class="last">Zeng</span></span></a>
+                    <div class="tagline">bridging the physical and digital worlds</div>
+                    <div class="copyright">&copy; 2026 Haochen Zeng</div>
+                </div>
+                <div class="fcol">
+                    <div class="h">Work</div>
+                    <a href="projects.html">Projects</a>
+                    <a href="experiences.html">Experiences</a>
+                    <a href="resume.html">Resume</a>
+                </div>
+                <div class="fcol">
+                    <div class="h">About</div>
+                    <a href="index.html">About me</a>
+                    <a href="index.html#interests">Interests</a>
+                    <a href="index.html#skills">Skills</a>
+                </div>
+                <div class="fcol">
+                    <div class="h">Elsewhere</div>
+                    <a href="https://www.youtube.com/@Airrooster" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://x.com/hzeng412" target="_blank" rel="noopener">X / Twitter</a>
+                    <a href="https://www.linkedin.com/in/hzeng4/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
         </div>
+        <div class="foot-art"><img src="./assets/art/mountain.svg" alt="" role="presentation"></div>
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="./assets/js/projects.js"></script>
+    <script src="./assets/js/hero-compare.js"></script>
     <script>
-        window.THREE = THREE;
+        document.addEventListener('DOMContentLoaded', function () {
+            initProjects('featured-projects-grid', ['kodak-hall', 'inorbit', 'aigen']);
+        });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
-    <script src="./assets/js/three-scenes.js"></script>
-    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
