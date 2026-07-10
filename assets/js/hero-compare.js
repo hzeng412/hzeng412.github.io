@@ -88,10 +88,12 @@
   }
 
   function runIntro(sampled) {
-    /* fly in -> take on color -> the photo fades up UNDER the dots while the
-       dots slowly dissolve into it: one continuous composite on the canvas */
-    var FLY = 1700, COLOR = 900, REVEAL = 2000, STAGGER = 700;
-    var TOTAL = FLY + STAGGER + COLOR * 0.5 + REVEAL;
+    /* One continuous flow: every dot colorizes as IT lands (not in a global
+       phase), and the photo starts rising under the cloud while the last
+       dots are still flying, each dot dissolving into it on its own beat. */
+    var FLY = 1600, COLOR = 750, REVEAL = 2000, STAGGER = 700;
+    var REVEAL_START = STAGGER + FLY * 0.45;
+    var TOTAL = REVEAL_START + REVEAL + 250;
     var w = sampled.w, h = sampled.h;
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = w * dpr;
@@ -148,9 +150,7 @@
       ctx.fillStyle = PAPER;
       ctx.fillRect(0, 0, w, h);
 
-      var colorK = Math.max(0, Math.min(1, (el - FLY - STAGGER) / COLOR));
-      /* photo starts rising midway through the colorize phase */
-      var revealK = Math.max(0, Math.min(1, (el - FLY - STAGGER - COLOR * 0.5) / REVEAL));
+      var revealK = Math.max(0, Math.min(1, (el - REVEAL_START) / REVEAL));
 
       if (revealK > 0) {
         ctx.globalAlpha = smooth(revealK);
@@ -165,6 +165,9 @@
           (revealK * 1.35 - d.fade * 0.5) / 0.85)));
         if (dotA <= 0.01) continue;
         var k = ease(Math.max(0, Math.min(1, (el - d.delay) / FLY)));
+        /* this dot's own color ramp begins as it comes in to land */
+        var colorK = smooth(Math.max(0, Math.min(1,
+          (el - d.delay - FLY * 0.72) / COLOR)));
         var x = d.sx + (d.x - d.sx) * k;
         var y = d.sy + (d.y - d.sy) * k;
         var cr = INK.r + (d.cr - INK.r) * colorK;
@@ -173,7 +176,7 @@
         ctx.globalAlpha = dotA;
         ctx.fillStyle = 'rgb(' + (cr | 0) + ',' + (cg | 0) + ',' + (cb | 0) + ')';
         ctx.beginPath();
-        ctx.arc(x, y, d.r, 0, 6.2832);
+        ctx.arc(x, y, d.r * (0.55 + 0.45 * k), 0, 6.2832);
         ctx.fill();
       }
       ctx.globalAlpha = 1;

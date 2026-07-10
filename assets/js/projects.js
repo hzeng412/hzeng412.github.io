@@ -35,7 +35,8 @@ function renderProjects(grid, list) {
     );
   }).join('');
 
-  grid.querySelectorAll('.pcard').forEach(function (card) {
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.pcard'));
+  cards.forEach(function (card) {
     card.addEventListener('click', function () {
       showProjectDetails(card.dataset.projectId);
     });
@@ -46,6 +47,23 @@ function renderProjects(grid, list) {
       }
     });
   });
+
+  /* staggered reveal from the center of the grid, with a tiny swing */
+  if ('IntersectionObserver' in window) {
+    var mid = (cards.length - 1) / 2;
+    cards.forEach(function (card, i) {
+      card.style.setProperty('--enter-delay', (Math.abs(i - mid) * 0.05).toFixed(2) + 's');
+      card.classList.add('pre-enter');
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        cards.forEach(function (card) { card.classList.add('enter'); });
+      });
+    }, { threshold: 0.15 });
+    io.observe(grid);
+  }
 }
 
 function showProjectDetails(projectId) {

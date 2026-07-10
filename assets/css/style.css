@@ -327,6 +327,19 @@ a { color: var(--ink); }
   outline-offset: 2px;
 }
 
+/* staggered grid reveal */
+@keyframes pcard-enter {
+  from { opacity: 0; transform: translateY(12px) rotate(-2deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+.pcard.pre-enter { opacity: 0; }
+
+.pcard.pre-enter.enter {
+  animation: pcard-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--enter-delay, 0s);
+}
+
 .pcard .pimg {
   height: 180px;
   border-bottom: 1px solid var(--rule-strong);
